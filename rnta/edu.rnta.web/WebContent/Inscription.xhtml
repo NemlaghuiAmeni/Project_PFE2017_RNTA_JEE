@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head></h:head>
+<body>
+	<f:view>
+		<h:form>
+			<center>
+				Inscription utilisateur <br /> <br />
+				<h:panelGrid columns="3">
+					<h:outputLabel value="Id Utilisateur" for="id" />
+					<h:inputText id="id" value="#{utilisateurManagedBean.utilisateur.id}"
+						required="true" requiredMessage="le  id est obligatoire" />
+					<h:message for="id" style="color:red" />
+					<h:outputLabel value="Nom Utilisateur" for="nom" />
+					<h:inputText id="nom" value="#{utilisateurManagedBean.utilisateur.nom}" />
+					<h:message for="nom" style="color:#FF0000" />
+					<h:outputLabel value="Prenom Utilisateur" for="prenom" />
+					<h:inputText id="prenom" value="#{utilisateurManagedBean.utilisateur.prenom}" />
+					<h:message for="prenom" style="color:#FF0000" />
+					<h:outputLabel value="Mail utilisateur" for="mail" />
+					<h:inputText id="mail" value="#{utilisateurManagedBean.utilisateur.email}" />
+					<h:message for="mail" style="color:#FF0000" />
+					<h:outputLabel value="Password Utilisateur" for="pwd" />
+					<h:inputSecret id="pwd" value="#{utilisateurManagedBean.utilisateur.password}" />
+					<h:message for="pwd" style="color:#FF0000" />
+					
+					<h:outputLabel value="Role Utilisateur" for="role" />
+					<h:inputSecret id="role" value="#{utilisateurManagedBean.utilisateur.role}" />
+					<h:message for="role" style="color:#FF0000" />
+				</h:panelGrid>
+				<br />
+				<h:commandLink action="#{utilisateurManagedBean.inscrire()}"
+					value="Sauvegarder" />
+				<br /> <br />
+				
+	<h:commandButton action="#{utilisateurMB.listUtilisateur()}"
+	value="listUtilisateur()" />
+	<br /> <br />
+				<h:outputText value="#{utilisateurMB.message}" style="color:green" />
+			
+	<br /> <br />
+	</center>
+		</h:form>
+	</f:view>
+</body>
+</html>

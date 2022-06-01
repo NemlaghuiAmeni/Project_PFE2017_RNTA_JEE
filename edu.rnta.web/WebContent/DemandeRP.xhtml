@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+	<h:head>
+	<title>Demanderep</title>
+</h:head>
+<h:body id="principal">
+	<div id="cadre">
+		<h:form>
+			<p:messages id="message" autoUpdate="false" severity="info,fatal"
+				showSummary="true" showDetail="true" />
+			<p:fieldset legend="Demande Reparation">
+				<h:panelGrid columns="3" id="NewFile">
+					<p:outputLabel for="id_demande" value="Id_demande" />
+					<p:inputText id="id_demande"
+						value="#{demandeManagedBean.demande.id_demande}" required="true" />
+					<p:message for="id_demande" />
+
+					<p:outputLabel for="date_envoie" value="Date d'envoie" />
+					<p:calendar id="date_envoie"
+						value="#{demandeManagedBean.demande.date_envoie}"
+						pattern="dd-MM-yyyy" required="true" />
+					<p:message for="date_envoie" />
+
+					<p:outputLabel for="nom_departement" value="Nom Departement" />
+					<p:inputText id="nom_departement"
+						value="#{demandeManagedBean.demande.nom_departement}"
+						required="true" />
+					<p:message for="nom_departement" />
+
+					<p:outputLabel for="description" value="Description" />
+					<p:inputText id="description"
+						value="#{demandeManagedBean.demande.description}" required="true" />
+					<p:message for="description" />
+				</h:panelGrid>
+				<h:panelGrid columns="3">
+					<p:commandButton action="#{demandeManagedBean.Sauvegarder()}"
+						value="Sauvegarder" ajax="false" />
+
+
+
+				</h:panelGrid>
+			</p:fieldset>
+		</h:form>
+	</div>
+
+</h:body>
+</html>

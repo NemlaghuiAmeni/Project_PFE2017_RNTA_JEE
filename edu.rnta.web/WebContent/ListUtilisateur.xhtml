@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<link href="resources/css/bootstrap.css"
+		rel="stylesheet" />
+	<link href="resources/css/fresh-bootstrap-table.css"
+		rel="stylesheet" />
+	<link href="resources/css/demo.css" rel="stylesheet" />
+
+	<!--     Fonts and icons     -->
+	<link
+		href="../maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+		rel="stylesheet" />
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300'
+		rel='stylesheet' type='text/css' />
+
+	<script type="text/javascript"
+		src="resources/js/jquery-1.11.2.min.js" />
+	<script type="text/javascript"
+		src="resources/js/bootstrap.js" />
+	<script type="text/javascript"
+		src="resources/js/bootstrap-table.js" />
+
+	<!--  Just for demo purpose, do not include in your project     -->
+	<script type="text/javascript"
+		src="resources/js/demo/gsdk-switch.js" />
+	<script type="text/javascript"
+		src="resourcesjs/demo/jquery.sharrre.js" />
+	<script type="text/javascript"
+		src="resources/js/demo/demo.js" />
+
+</h:head>
+<body>
+<f:view>
+		<h:form>
+			<center>
+			   <div class="brand">
+				<h1 style="color:white;">Ajout utilisateur</h1>
+				</div> <br /> <br />
+				<h:panelGrid columns="3">
+					<h:outputLabel value="Id Utilisateur" for="id" style="color:white;" />
+					<h:inputText id="id" value="#{utilisateurManagedBean.utilisateur.id}"
+						required="true" requiredMessage="le  id est obligatoire" />
+					
+					<h:message for="id" style="color:red" />
+					<h:outputLabel style="margin-top:20px;color:white;" value="Nom Utilisateur" for="nom" />
+					
+					<h:inputText style="margin-top:20px;" id="nom" value="#{utilisateurManagedBean.utilisateur.nom}" />
+					
+					<h:message for="nom" style="color:#FF0000" />
+					<h:outputLabel style="margin-top:20px;color:white;" value="Prenom Utilisateur" for="prenom" />
+					<h:inputText style="margin-top:20px;" id="prenom" value="#{utilisateurManagedBean.utilisateur.prenom}" />
+					
+					<h:message for="prenom" style="color:#FF0000" />
+				
+					<h:outputLabel  style="margin-top:20px;color:white;" value="Mail utilisateur" for="mail" />
+					<h:inputText style="margin-top:20px;" id="mail" value="#{utilisateurManagedBean.utilisateur.email}" />
+					
+					<h:message for="mail" style="color:#FF0000" />	
+					<h:outputLabel  style="margin-top:20px;color:white;" value="Role Utilisateur" for="role" />
+					
+					<h:inputSecret style="margin-top:20px;" id="role" value="#{utilisateurManagedBean.utilisateur.role}" />
+					<h:message for="role" style="color:#FF0000" />
+				</h:panelGrid>
+				<br />
+				
+	<h:commandButton action="#{utilisateurManagedBean.showList()}" class="btn btn-primary"
+	value="listUtilisateur" />
+	<br /> <br />
+				<h:outputText value="#{utilisateurMB.message}" style="color:blue" />
+            <h:commandButton class="btn btn-primary" value="Ajouter" action="#{utilisateurManagedBean.sauvegarder()}" />
+            <h:commandButton class="btn btn-primary" value="Annuler" action="#{utilisateurManagedBean.reset()}" />
+          
+			
+	<br /> <br />
+	</center>
+		</h:form>
+	</f:view>
+	<div class="wrapper">
+	  <!--   Creative Tim Branding   -->
+    <a href="http://creative-tim.com/">
+         <div class="logo-container full-screen-table-demo">
+            <div class="logo">
+                <img src="resources/img/new_logo.png"/>
+            </div>
+            <div class="brand">
+              Application
+            </div>
+        </div>
+    </a>
+	<br/><br/><br/><br/><br/>
+				<center><h3 style="color:white;">ListUtilisateurs</h3></center>
+	 		
+
+<br/>
+	<div class="fresh-table full-color-blue full-screen-table">
+		<h:form rendered="#{utilisateurManagedBean.showList}">
+			<h:dataTable id="fresh-table" class="table"
+				value="#{utilisateurManagedBean.utilisateurs}" var="u">
+
+				<h:column>
+					<!-- column header -->
+					<f:facet name="header">Nom utilisateur</f:facet>
+					<!-- row record -->
+    				#{u.nom}
+    			</h:column>
+
+				<h:column>
+					<f:facet name="header">Prenom utilisareur</f:facet>
+    				#{u.prenom}
+    			</h:column>
+
+				<h:column>
+					<f:facet name="header">Email</f:facet>
+    				#{u.email}
+    			</h:column>
+
+				<h:column>
+					<f:facet name="header">Role</f:facet>
+    				#{u.role}
+    			</h:column>
+
+				<h:column>
+					<f:facet name="header">Action</f:facet>
+					<h:commandButton class="btn btn-default" action="#{utilisateurManagedBean.showModif(u)}" value="Modifier"
+					 />
+					<h:commandButton  class="btn btn-default" action="#{utilisateurManagedBean.delete(u)}"
+						value="Supprrimer" 
+						 />
+				</h:column>
+			</h:dataTable>
+		</h:form>
+	</div>
+	
+	<h:form rendered="#{utilisateurManagedBean.showModif}">
+			<center>
+				<h1 style="color:white;">Modifier utilisateur</h1> <br /> <br />
+				<h:panelGrid columns="3">
+					<h:outputLabel  style="color:white;" value="Id Utilisateur" for="id" />
+					<h:inputText id="id" value="#{utilisateurManagedBean.selectUser.id}"
+						required="true" requiredMessage="le  id est obligatoire" />
+					<h:message for="id" style="color:red" />
+					<h:outputLabel style="margin-top:20px; color:white;" value="Nom Utilisateur" for="nom" />
+					<h:inputText style="margin-top:20px;" id="nom" value="#{utilisateurManagedBean.selectUser.nom}" />
+					<h:message for="nom" style="color:#FF0000" />
+					<h:outputLabel style="margin-top:20px; color:white;" value="Prenom Utilisateur" for="prenom" />
+					<h:inputText style="margin-top:20px;" id="prenom" value="#{utilisateurManagedBean.selectUser.prenom}" />
+					<h:message for="prenom" style="color:#FF0000" />
+					<h:outputLabel style="margin-top:20px ; color:white;" value="Mail utilisateur" for="mail" />
+					<h:inputText  style="margin-top:20px;" id="mail" value="#{utilisateurManagedBean.selectUser.email}" />
+					<h:message for="mail" style="color:#FF0000" />	
+					<h:outputLabel style="margin-top:20px; color:white;" value="Role Utilisateur" for="role" />
+					<h:inputSecret style="margin-top:20px;" id="role" value="#{utilisateurManagedBean.selectUser.role}" />
+					<h:message for="role" style="color:#FF0000" />
+				</h:panelGrid>
+				<br />
+			
+            <h:commandButton value="Modifier" class="btn btn-primary" action="#{utilisateurManagedBean.modifierUser()}" />
+            <h:commandButton value="Annuler"  class="btn btn-primary" action="#{utilisateurManagedBean.reset()}" />
+          
+			
+	<br /> <br />
+	</center>
+		</h:form>
+		</div>
+</body>
+
+
+    
+</html>

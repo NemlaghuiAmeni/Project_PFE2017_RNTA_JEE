@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+
+    
+        <h:form id="form">
+        <h:panelGrid width="600" columns="1" >
+              <p:growl id="msgs" showDetail="true" autoUpdate="true" />
+              <p:panel>
+              
+              
+            <p:dataTable id="tbl" var="menu"  value="#{uilisateur.listmenu}"
+                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} "
+                         paginator="true" rows="10" style="margin-bottom:20px">
+                         
+                         
+                      
+             
+           <p:column headerText="Nom" style="width:20%" filterBy="#{menu.nom}" filterMatchMode="contains" filterOptions="">
+                 <p:cellEditor>
+                  <f:facet name="output">
+                  <h:outputText  value="#{menu.nom}"/>
+                  </f:facet>
+                    <f:facet name="input">
+                     <h:inputText value="#{menu.nom}" style="width:100%" />
+                   </f:facet>
+                  </p:cellEditor>
+                 </p:column>
+                 
+                  <p:column headerText="Prenom" style="width:20%" filterBy="#{menu.prenom}" filterMatchMode="contains" filterOptions="">
+                 <p:cellEditor>
+                  <f:facet name="output">
+                  <h:outputText  value="#{menu.prenom}"/>
+                  </f:facet>
+                    <f:facet name="input">
+                     <h:inputText value="#{profil.prenom}" style="width:100%" />
+                   </f:facet>
+                  </p:cellEditor>
+                 </p:column>
+                 
+                 <p:column headerText="Age" style="width:20%" filterBy="#{menu.age}" filterMatchMode="contains" filterOptions="">
+                 <p:cellEditor>
+                  <f:facet name="output">
+                  <h:outputText  value="#{profil.age}"/>
+                  </f:facet>
+                    <f:facet name="input">
+                     <h:inputText value="#{profil.age}" style="width:100%" />
+                   </f:facet>
+                  </p:cellEditor>
+                 </p:column>
+                 
+                 <p:column headerText="CIN" style="width:20%" filterBy="#{profil.cin}" filterMatchMode="contains" filterOptions="">
+                 <p:cellEditor>
+                  <f:facet name="output">
+                  <h:outputText  value="#{profil.cin}"/>
+                  </f:facet>
+                    <f:facet name="input">
+                     <h:inputText value="#{profil.cin}" style="width:100%" />
+                   </f:facet>
+                  </p:cellEditor>
+                 </p:column>
+                 
+                 <p:column headerText="Adresse" style="width:20%" filterBy="#{profil.adress}" filterMatchMode="contains" filterOptions="">
+                 <p:cellEditor>
+                  <f:facet name="output">
+                  <h:outputText  value="#{profil.adress}"/>
+                  </f:facet>
+                    <f:facet name="input">
+                     <h:inputText value="#{profil.adress}" style="width:100%" />
+                   </f:facet>
+                  </p:cellEditor>
+                 </p:column>
+                 
+                 <p:column headerText="Tel" style="width:20%" filterBy="#{profil.tel}" filterMatchMode="contains" filterOptions="">
+                 <p:cellEditor>
+                  <f:facet name="output">
+                  <h:outputText  value="#{profil.tel}"/>
+                  </f:facet>
+                    <f:facet name="input">
+                     <h:inputText value="#{profil.tel}" style="width:100%" />
+                   </f:facet>
+                  </p:cellEditor>
+                 </p:column>
+                 
+                 <p:column headerText="Mail" style="width:20%" filterBy="#{profil.mail}" filterMatchMode="contains" filterOptions="">
+                 <p:cellEditor>
+                  <f:facet name="output">
+                  <h:outputText  value="#{profil.mail}"/>
+                  </f:facet>
+                    <f:facet name="input">
+                     <h:inputText value="#{profil.mail}" style="width:100%" />
+                   </f:facet>
+                  </p:cellEditor>
+                 </p:column>
+                 
+                 <p:column headerText="Profil" style="width:20%" filterBy="#{profil.role}" filterMatchMode="contains" filterOptions="">
+                 <p:cellEditor>
+                  <f:facet name="output">
+                  <h:outputText  value="#{profil.role}"/>
+                  </f:facet>
+                    <f:facet name="input">
+                     <h:inputText value="#{profil.role}" style="width:100%" />
+                   </f:facet>
+                  </p:cellEditor>
+                 </p:column>
+                 
+                 <p:column headerText="Utilisateur" style="width:20%" filterBy="#{profil.login}" filterMatchMode="contains" filterOptions="">
+                 <p:cellEditor>
+                  <f:facet name="output">
+                  <h:outputText  value="#{profil.login}"/>
+                  </f:facet>
+                    <f:facet name="input">
+                     <h:inputText value="#{profil.login}" style="width:100%" />
+                   </f:facet>
+                  </p:cellEditor>
+                 </p:column>
+                 
+                 <p:column headerText="Mot de passe" style="width:20%" filterBy="#{profil.pwd}" filterMatchMode="contains" filterOptions="">
+                 <p:cellEditor>
+                  <f:facet name="output">
+                  <h:outputText  value="#{profil.pwd}"/>
+                  </f:facet>
+                    <f:facet name="input">
+                     <h:inputText value="#{profil.pwd}" style="width:100%" />
+                   </f:facet>
+                  </p:cellEditor>
+                 </p:column>
+
+                <p:column headerText="Modifier" style="width:3%">
+						<p:commandLink actionListener="#{profilController.lire(profil)}"
+							oncomplete="PF('wdialog').show();" update=":dialog">
+							<h:graphicImage library="images" name="edit.png" />
+						</p:commandLink>
+					</p:column>
+					<p:column>
+                   <f:facet name="header">
+                   <h:outputText  value="Supprimer"/> </f:facet>
+                   <h:commandButton value="Supprimer" id="supp" icon="ui-icon-trash" style="color:red"
+                         action="#{profilController.supprimer}">
+                         <f:setPropertyActionListener target="#{profilController.profil}" value="#{profil}"/>
+                         
+                      </h:commandButton>
+                  </p:column>
+            </p:dataTable>
+            
+            <p:commandButton icon="ui-icon-plusthick" value="nouveau"
+					onclick="PF('wdialog').show();"
+					actionListener="#{profilController.setAction('E')}"
+					update=":formDialog" />
+					 <h:commandLink>
+                <p:graphicImage library="images" name="excel.jpg" width="24"/>
+                <p:dataExporter type="xls" target="tbl" fileName="profils" />
+            </h:commandLink>
+            
+            	 <h:commandLink>
+                <p:graphicImage library="images" name="pdf.png" width="24"/>
+                <p:dataExporter type="pdf" target="tbl" fileName="profils" />
+            </h:commandLink>
+           
+            </p:panel>
+            </h:panelGrid>
+        </h:form>
+        <p:dialog id="dialog" widgetVar="wdialog" modal="true"
+		resizable="false" closeOnEscape="true">
+        <h:form id="formDialog">
+                <p:messages id="message" autoUpdate="false" severity="info,fatal" showSummary="true" showDetail="true"/>
+                <p:fieldset legend="Informations personnelle">
+                    <h:panelGrid columns="3" id="pgData">
+                        <p:outputLabel for="txtNom" value="Nom"/>
+                        <p:inputText id="txtNom" value="#{profilController.profil.nom}" required="true"/>
+                        <p:message for="txtNom"/>
+
+                        <p:outputLabel for="txtPrenom" value="Prenom"/>
+                        <p:inputText id="txtPrenom" value="#{profilController.profil.prenom}" required="true"/>
+                        <p:message for="txtPrenom"/>
+
+                        <p:outputLabel for="txtAge" value="Age"/>
+                        <p:inputText id="txtAge" value="#{profilController.profil.age}" required="true"/>
+                        <p:message for="txtAge"/>  
+
+                        <p:outputLabel for="txtCin" value="Cin"/>
+                        <p:inputText id="txtCin" value="#{profilController.profil.cin}" required="true"/>
+                        <p:message for="txtCin"/>
+
+                        <p:outputLabel for="txtAdress" value="Adresse"/>
+                        <p:inputText id="txtAdress" value="#{profilController.profil.adress}" required="true"/>
+                        <p:message for="txtAdress"/>
+
+
+
+                        <p:outputLabel for="txtTel" value="Tel"/>
+                        <p:inputText id="txtTel" value="#{profilController.profil.tel}" required="true"/>
+                        <p:message for="txtTel"/>
+
+                        <p:outputLabel for="mail" value="Mail"/>
+                        <p:inputText id="mail"  value="#{profilController.profil.mail}" required="true">
+                        <f:validator validatorId="profil.emailValidator" />
+                        
+
+                        </p:inputText>
+                    </h:panelGrid>
+                </p:fieldset>
+                <p:fieldset legend="Donnees de compte">
+                    <h:panelGrid columns="3" id="pgCompte">
+                        <p:outputLabel for="txtProfil" value="Profil"/>
+                        
+                        <p:selectOneMenu id="txtProfil" value="#{profilController.profil.role}" required="true">
+                            <f:selectItem itemValue="A" itemLabel="Administrateur"/>
+                            <f:selectItem itemValue="M" itemLabel="Magasinier"/>
+                            <f:selectItem itemValue="Ra" itemLabel="Responsable atelier"/>
+                            <f:selectItem itemValue="Rq" itemLabel="Responsable qualite"/>
+                        </p:selectOneMenu>
+                        <p:message for="txtProfil"/>
+                        <p:outputLabel for="txtLogin" value="Utilisateur"/>
+                        <p:inputText id="txtLogin" value="#{profilController.profil.login}" required="true"/>
+                        <p:message for="txtLogin"/>
+                        <p:outputLabel for="pwd1" value="mot de passe"/>
+                        <p:password id="pwd1" value="#{profilController.profil.pwd}" match="pwd2" feedback="true" 
+                                    promptLabel="saisir mot de passe"
+                                    validatorMessage="les cles ne correspondent pas" weakLabel="faible" strongLabel="fort" goodLabel="bien"
+                                    required="true" requiredMessage="champ obligatoire"/>
+                        <p:message for="pwd1"/>
+
+                        <p:outputLabel for="pwd2" value="Repeter mot de passe"/>
+                        <p:password id="pwd2" required="true" requiredMessage="champ obligatoire"/>
+                        <p:message for="pwd2"/>
+                    </h:panelGrid>
+                    
+                        <h:panelGrid columns="3">
+                    <p:commandButton icon="ui-icon-disk" value="Enregistrer"
+						update=":form:tbl" actionListener="#{profilController.enregistrer()}"
+						oncomplete="PF('wdialog').hide();"
+						/>
+						<!-- rendered="#{profilController.action=='E'}"  -->
+					<p:commandButton icon="ui-icon-pencil" value="Modifier"
+						update=":form:tbl" actionListener="#{profilController.modifier()}"
+						oncomplete="PF('wdialog').hide();"
+						 />
+						 <!-- rendered="#{profilController.action=='M'}" -->
+
+					<p:commandButton icon="ui-icon-close" value="Annuler"
+						immediate="true" onclick="PF('wdialog').hide();" />
+                </h:panelGrid>
+                </p:fieldset>
+            </h:form>
+       </p:dialog>
+    
+</ui:composition>

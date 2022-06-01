@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+
+<h:head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<link href="resources/css/bootstrap.css"
+		rel="stylesheet" />
+</h:head>
+<body style="background-image:url('resources/img/');">
+<div class="container">
+                   <center><img src="resources/img/font.jpg"/></center>
+		            <center><h1> Bienvenue veuillez vous connectez</h1></center>
+		         <center>
+                <div id="div-forms" style="width:550px;">
+                
+                    <!-- Begin # Login Form -->
+                    <h:form id="login-form">
+		                <div class="modal-body">
+				    		<div id="div-login-msg">
+                                <div id="icon-login-msg" class="glyphicon glyphicon-chevron-right"></div>                             
+                            </div>
+				    		<h:inputText  class="form-control" type="text" value="#{loginManagedBean.utilisateur.email}"  />
+				    		<br/>
+				    		<h:inputSecret  class="form-control" type="password" value="#{loginManagedBean.utilisateur.password}" />
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"/> Remember me
+                                </label>
+                            </div>
+        		    	</div>
+				        <div class="modal-footer">
+                            <div>
+                                <h:commandButton action="#{loginManagedBean.login()}" value="Connexion" class="btn btn-primary btn-lg btn-block"/>
+                       
+                            </div>
+				    	    <div>
+                                <button id="login_lost_btn" type="button" class="btn btn-link">Lost Password?</button>
+                                <a href="Inscription.xhtml" id="login_register_btn" type="button" class="btn btn-link">Register</a>
+                            </div>
+				        </div>
+                    </h:form>
+                    <!-- End # Login Form -->
+                    
+<!--                     Begin | Lost Password Form -->
+<!--                     <form id="lost-form" style="display:none;"> -->
+<!--     	    		    <div class="modal-body"> -->
+<!-- 		    				<div id="div-lost-msg"> -->
+<!--                                 <div id="icon-lost-msg" class="glyphicon glyphicon-chevron-right"></div> -->
+<!--                                 <span id="text-lost-msg">Type your e-mail.</span> -->
+<!--                             </div> -->
+<!-- 		    				<input id="lost_email" class="form-control" type="text" placeholder="E-Mail (type ERROR for error effect)" required> -->
+<!--             			</div> -->
+<!-- 		    		    <div class="modal-footer"> -->
+<!--                             <div> -->
+<!--                                 <button type="submit" class="btn btn-primary btn-lg btn-block">Send</button> -->
+<!--                             </div> -->
+<!--                             <div> -->
+<!--                                 <button id="lost_login_btn" type="button" class="btn btn-link">Log In</button> -->
+<!--                                 <button id="lost_register_btn" type="button" class="btn btn-link">Register</button> -->
+<!--                             </div> -->
+<!-- 		    		    </div> -->
+<!--                     </form> -->
+<!--                     End | Lost Password Form -->
+                    
+<!--                     Begin | Register Form -->
+<!--                     <form id="register-form" style="display:none;"> -->
+<!--             		    <div class="modal-body"> -->
+<!-- 		    				<div id="div-register-msg"> -->
+<!--                                 <div id="icon-register-msg" class="glyphicon glyphicon-chevron-right"></div> -->
+<!--                                 <span id="text-register-msg">Register an account.</span> -->
+<!--                             </div> -->
+<!-- 		    				<input id="register_username" class="form-control" type="text" placeholder="Username (type ERROR for error effect)" required> -->
+<!--                             <input id="register_email" class="form-control" type="text" placeholder="E-Mail" required> -->
+<!--                             <input id="register_password" class="form-control" type="password" placeholder="Password" required> -->
+<!--             			</div> -->
+<!-- 		    		    <div class="modal-footer"> -->
+<!--                             <div> -->
+<!--                                 <button type="submit" class="btn btn-primary btn-lg btn-block">Register</button> -->
+<!--                             </div> -->
+<!--                             <div> -->
+<!--                                 <button id="register_login_btn" type="button" class="btn btn-link">Log In</button> -->
+<!--                                 <button id="register_lost_btn" type="button" class="btn btn-link">Lost Password?</button> -->
+<!--                             </div> -->
+<!-- 		    		    </div> -->
+<!--                     </form> -->
+<!--                     End | Register Form -->
+                    
+                </div>
+                </center>
+                <!-- End # DIV Form -->
+            </div>    
+			
+	</body>
+  </html>

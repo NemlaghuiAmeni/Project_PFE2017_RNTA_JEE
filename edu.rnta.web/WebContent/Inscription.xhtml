@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<link href="resources/css/bootstrap.css"
+		rel="stylesheet" />
+	<link href="resources/css/fresh-bootstrap-table.css"
+		rel="stylesheet" />
+	<link href="resources/css/demo.css" rel="stylesheet" />
+
+	<!--     Fonts and icons     -->
+	<link
+		href="../maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+		rel="stylesheet" />
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300'
+		rel='stylesheet' type='text/css' />
+
+	<script type="text/javascript"
+		src="resources/js/jquery-1.11.2.min.js" />
+	<script type="text/javascript"
+		src="resources/js/bootstrap.js" />
+	<script type="text/javascript"
+		src="resources/js/bootstrap-table.js" />
+
+	<!--  Just for demo purpose, do not include in your project     -->
+	<script type="text/javascript"
+		src="resources/js/demo/gsdk-switch.js" />
+	<script type="text/javascript"
+		src="resourcesjs/demo/jquery.sharrre.js" />
+	<script type="text/javascript"
+		src="resources/js/demo/demo.js" />
+
+
+</h:head>
+<body style="background-image:url('resources/img/');">
+<div class="container">
+                   <center><img src="resources/img/font.jpg"/></center>
+                   <center><h1 style="color:blue;"> Bienvenue veuillez vous inscrivez</h1></center>
+	<f:view>
+		<h:form>
+			<center>
+			<h1 style="color:noir;"	>Inscription utilisateur</h1>  <br /> <br />
+				<h:panelGrid columns="3">
+					<h:outputLabel value="Id Utilisateur" for="id" style="color:noir;"/>
+					<h:inputText id="id" value="#{utilisateurManagedBean.utilisateur.id}"
+						required="true" requiredMessage="le  id est obligatoire" />
+					<h:message for="id" style="color:red" />
+					<h:outputLabel value="Nom Utilisateur" for="nom" style="margin-top:20px;color:noir;"/>
+					<h:inputText id="nom" value="#{utilisateurManagedBean.utilisateur.nom}" style="margin-top:20px;" />
+					<h:message for="nom" style="color:#FF0000" />
+					<h:outputLabel value="Prenom Utilisateur" for="prenom" style="margin-top:20px;color:noir;"/>
+					<h:inputText id="prenom" value="#{utilisateurManagedBean.utilisateur.prenom}" style="margin-top:20px;" />
+					<h:message for="prenom" style="color:#FF0000" />
+					<h:outputLabel value="Mail utilisateur" for="mail" style="margin-top:20px;color:noir;" />
+					<h:inputText id="mail" value="#{utilisateurManagedBean.utilisateur.email}" style="margin-top:20px;" />
+					<h:message for="mail" style="color:#FF0000" />
+					<h:outputLabel value="Password Utilisateur" for="pwd" style="margin-top:20px;color:noir;" />
+					<h:inputSecret id="pwd" value="#{utilisateurManagedBean.utilisateur.password}" style="margin-top:20px;"/>
+					<h:message for="pwd" style="color:#FF0000" />
+					
+					<h:outputLabel value="Role Utilisateur" for="role"  style="margin-top:20px;color:noir;"/>
+					<h:inputSecret id="role" value="#{utilisateurManagedBean.utilisateur.role}" style="margin-top:20px;" />
+					<h:message for="role" style="color:#FF0000" />
+				</h:panelGrid>
+				<br />
+				<h:commandLink action="#{utilisateurManagedBean.inscrire()}" class="btn btn-primary "
+					value="Sauvegarder"  style="color:blue;" />
+				<br /> <br />
+				
+
+	<br /> <br />
+				<h:outputText value="#{utilisateurMB.message}" style="color:blue" />
+			
+	<br /> <br />
+	</center>
+		</h:form>
+	</f:view>
+	  </div> 
+</body>
+</html>

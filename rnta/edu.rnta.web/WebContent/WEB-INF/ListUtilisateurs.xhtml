@@ -1,0 +1,39 @@
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+xmlns:h="http://xmlns.jcp.org/jsf/html"
+xmlns:f="http://xmlns.jcp.org/jsf/core"
+xmlns:p="http://primefaces.org/ui">
+<h:form id="form1">
+<center>
+<h:outputText value="#{utilisateurManagedBean.message}"style="color:#FF0000" />
+<p:outputLabel value="Cin utilisateur" for="cin" />
+<p:inputText id="cin" value="#{utilisateurManagedBean.utilisateur.cin}"
+required="true" requiredMessage="le champs CIN est obligatoire"
+label="cin" validatorMessage="Taille CIN min 3 chiffres ">
+<f:validateLength for="cin" maximum="8" minimum="3" />
+</p:inputText>
+<h:message for="id" style="color:red" />
+<p:outputLabel value="Nom Utilisateur" for="nom" />
+<p:inputText id="nom" value="#{utilisateurManagedBean.utilisateur.nom}" />
+<h:message for="nom" style="color:#FF0000" />
+<p:outputLabel value="Prenom Utilisateur" for="prenom" />
+<p:inputText id="prenom" value="#{utilisateurManagedBean.utilisateur.prenom}" />
+<h:message for="prenom" style="color:#FF0000" />
+<p:outputLabel value="Role Utilisateur" for="role" />
+<p:inputText id="role value="#{utilisateurManagedBean.utilisateur.role}" />
+<h:message for="role" style="color:#FF0000" />
+<p:outputLabel value="Mail Utilisateur" for="mail" />
+<p:inputText id="mail" value="#{utilisateurManagedBean.utilisateur.mail}" />
+<h:message for="mail" style="color:#FF0000" />
+<p:outputLabel value="Password Etudiant" for="pwd" />
+<p:password id="pwd" redisplay="true" feedback="true"
+value="#{utilisateurManagedBean.utilisateur.password}" />
+<h:message for="pwd" style="color:#FF0000" />
+</h:panelGrid>
+<br />
+<p:commandButton action="#{utilisateurManagedBean.Sauvegarder()}"
+value="Sauvegarder" ajax="false"></p:commandButton>
+<p:commandButton action="#{utilisateurManagedBean.update()}"
+value="Update" ajax="false"></p:commandButton>
+</center>
+</h:form>
+</ui:composition>

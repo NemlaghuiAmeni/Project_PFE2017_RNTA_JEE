@@ -1,0 +1,31 @@
+
+<f:view>
+<h:form>
+<center> Inscription Utilisateur <br /> <br />
+<h:panelGrid columns="3">
+<h:outputLabel value="Id Utilisateur" for="id" />
+<h:inputText id="id" value="#{utilisateurMB.utilisateur.id}"
+required="true" requiredMessage="le ID est obligatoire" />
+<h:message for="id" style="color:red" />
+<h:outputLabel value="Nom Utilisateur" for="nom" />
+<h:inputText id="nom" value="#{utilisateurMB.utilisateur.nom}" />
+<h:message for="nom" style="color:#FF0000" />
+<h:outputLabel value="Prenom Utilisateur" for="prenom" />
+<h:inputText id="prenom" value="#{UtilisateurMB.utilisateur.prenom}" />
+<h:message for="prenom" style="color:#FF0000" />
+<f:convertDateTime pattern="dd-MM-yyyy" />
+</h:inputText>
+<h:message for="date" style="color:#FF0000" />
+<h:outputLabel value="Mail Etudiant" for="mail" />
+<h:inputText id="mail" value="#{utilisateurMB.utilisateur.mail}" />
+<h:message for="mail" style="color:#FF0000" />
+<h:outputLabel value="Password Utilisateur" for="pwd" />
+<h:inputSecret id="pwd" value="#{UtilisateurMB.Utilisateur.password}"/>
+<h:message for="pwd" style="color:#FF0000" />
+</h:panelGrid><br />
+<h:commandLink action="#{UtilisateurMB.ajouterUtilisateur()}"
+value="Sauvegarder" />
+<br /> <br />
+<h:outputText value="#{UtilisateurMB.message}" style="color:green" />
+</center>
+</h:form>
